@@ -78,12 +78,10 @@ function start(e){
 		
 		if($name.val() == ""){
 			$("#name").css("border-left-color", "red");
-
 		}
 		else {
 			$("#name").css("border-left-color", "black");
 		}
-
 		if($email.val() == ""){
 			$("#email").css("border-left-color", "red");
 		}
@@ -93,22 +91,17 @@ function start(e){
 		else {
 			$("#email").css("border-left-color", "black");
 		}
-
 		if($website.val() == ""){
 			$("#website").css("border-left-color", "red");
-
 		}
 		else if($website.val().indexOf("http://") == -1){
 			$("#website").css("border-left-color", "red");
-
 		}
 		else {
 			$("#website").css("border-left-color", "black");
 		}
-
 		if($message.val() == "" || $message.val() == "O"){
 			$("#message").css("border-left-color", "red");
-
 		}
 		else {
 			$("#message").css("border-left-color", "black");
