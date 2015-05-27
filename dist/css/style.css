@@ -67,3 +67,12 @@ form > p{
 	color:red;
 	margin-top: 0;
 }
+.success{
+	font-weight: bold;
+	font-size: 18px;
+	padding: 45px 15px;
+	text-align: center;
+	margin:60px 13% 120px;
+	background-color: #FFFFFF;
+	color:#000000;
+}
