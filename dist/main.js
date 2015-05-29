@@ -1,5 +1,4 @@
 $(document).ready(start);
-
 function start(e){
 
 	$("#form-box").on("submit",function(e){
@@ -17,53 +16,58 @@ function start(e){
 	$form.on("keyup", invalidText);
 
 	function validate(e){
-		var foundError = false;
-		var $nameError = ("#name-error");
-		var $emailError = ("#email-error");
-		var $websiteError = ("#website-error");
-		var $messageError = ("#message-error");
+		var errorNumber = 0;
+		var nameError = false;
+		var emailError = false;
+		var websiteError = false;
+		var messageError = false;
+
+
 
 		if($name.val() == ""){
 			$("#name").siblings('#name-error').addClass('active-error').html("Name cannot be left empty");
-			foundError = true;
+			nameError = true;
 		}
 		else {
 			$("#name").siblings("#name-error").removeClass("active-error");
-			foundError = false;
+			nameError = false;
 		}
 		if($email.val() == ""){
 			$("#email").siblings('#email-error').addClass('active-error').html("Email cannot be left empty");
-			foundError = true;
+			emailError = true;
 		}
 		else if($email.val().indexOf("@") == -1){
 			$("#email").siblings('#email-error').addClass('active-error').html("Email must contain an '@'");
-			foundError = true;
+			emailError = true;
 		}
 		else {
 			$("#email").siblings("#email-error").removeClass("active-error");
-			foundError = false;
+			emailError = false;
 		}
 		if($website.val() == ""){
 			$("#website").siblings('#website-error').addClass('active-error').html("Website cannot be left empty");
-			foundError = true;
+			websiteError = true;
 		}
 		else if($website.val().indexOf("http://") == -1){
 			$("#website").siblings('#website-error').addClass('active-error').html("Website must start with http://");
-			foundError = true;
+			websiteError = true;
 		}
 		else {
 			$("#website").siblings("#website-error").removeClass("active-error");
-			foundError = false;
+			websiteError = false;
 		}
 		if($message.val() == ""){
 			$("#message").siblings('#message-error').addClass('active-error').html("Message cannot be left empty");
-			foundError = true;
+			messageError = true;
 		}
 		else {
 			$("#message").siblings("#message-error").removeClass("active-error");
-			foundError = false;
+			messageError = false;
 		}
-		if(foundError === false){
+
+		errorNumber = nameError + emailError + websiteError + messageError;
+
+		if(errorNumber === 0 ){
 			$("form").css("display", "none");
 			$("div").addClass("success");
 			$("div").html("Thank you for contacting us " +$name.val()+ ". We will be in touch shortly.")
@@ -71,10 +75,6 @@ function start(e){
 	}
 
 	function invalidText(e){
-		var $nameError = ("#name-error");
-		var $emailError = ("#email-error");
-		var $websiteError = ("#website-error");
-		var $messageError = ("#message-error");
 		
 		if($name.val() == ""){
 			$("#name").css("border-left-color", "red");
