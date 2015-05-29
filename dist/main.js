@@ -1,6 +1,6 @@
 $(document).ready(start);
 function start(e){
-
+	
 	$("#form-box").on("submit",function(e){
     	e.preventDefault();
   	});
@@ -21,8 +21,6 @@ function start(e){
 		var emailError = false;
 		var websiteError = false;
 		var messageError = false;
-
-
 
 		if($name.val() == ""){
 			$("#name").siblings('#name-error').addClass('active-error').html("Name cannot be left empty");
